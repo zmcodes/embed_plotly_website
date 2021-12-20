@@ -1,0 +1,12 @@
+import chart_studio
+import chart_studio.plotly as py 
+import chart_studio.tools as tls
+import plotly.express as px
+
+username='zakito'
+api_key='I11HCOtsxeKx2tsi9MFQ'
+chart_studio.tools.set_credentials_file(username=username,api_key=api_key)
+
+df = px.data.tips()
+fig = px.bar(df, x="sex", y="total_bill",color='smoker', barmode='group',height=400)
+py.plot(fig,filename='bar-chart-test',auto_open=True)
